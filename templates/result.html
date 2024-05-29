@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>OCR Result</h1>
+        <textarea readonly rows="20" cols="80">{{ extracted_text }}</textarea>
+        <form action="/download" method="post">
+            <input type="hidden" name="extracted_text" value="{{ extracted_text }}">
+            <button type="submit" name="download_type" value="txt">Download as TXT</button>
+            <button type="submit" name="download_type" value="docx">Download as DOCX</button>
+        </form>
+    </div>
+</body>
+</html>
